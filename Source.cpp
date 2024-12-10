@@ -181,7 +181,6 @@ int main() {
 
         if (choice == 10) break;
 
-        int coeff, exp, x;
         switch (choice) {
         case 1:
             cout << "Enter coefficient for Polynomial 1: ";
