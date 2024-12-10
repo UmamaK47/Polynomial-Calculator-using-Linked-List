@@ -173,8 +173,8 @@ int main() {
     int choice;
     int coeff, exp, x;
     while (true) {
-        cout << "\nMenu:\n1. Insert term in Polynomial 1\n2. Insert term in Polynomial 2\n3. Display Polynomial 1\n";
-        cout << "4. Display Polynomial 2\n5. Add Polynomials\n6. Subtract Polynomial 1 - Polynomial 2\n";
+        cout << "\nMenu:\n1. Insert in Polynomial 1\n2. Insert in Polynomial 2\n3. Display Polynomial 1\n";
+        cout << "4. Display Polynomial 2\n5. Add Polynomials\n6. Subtract Polynomials 2\n";
         cout << "7. Multiply Polynomials\n8. Evaluate Polynomial 1\n9. Evaluate Polynomial 2\n10. Exit\n";
         cout << "Enter choice: ";
         choice = getValidInt();
@@ -206,7 +206,7 @@ int main() {
             break;
         case 5:
             if (polynomial1.isEmpty() || polynomial2.isEmpty()) {
-                cout << "Both polynomials must have terms to perform addition. Please enter terms in both polynomials first.\n";
+                cout << "Please enter both polynomials.\n";
             }
             else {
                 List sum = polynomial1 + polynomial2;
@@ -216,17 +216,17 @@ int main() {
             break;
         case 6:
             if (polynomial1.isEmpty() || polynomial2.isEmpty()) {
-                cout << "Both polynomials must have terms to perform subtraction. Please enter terms in both polynomials first.\n";
+                cout << "Please enter both polynomials.\n";
             }
             else {
                 List difference = polynomial1 - polynomial2;
-                cout << "Difference (Polynomial 1 - Polynomial 2): ";
+                cout << "Difference of Polynomials: ";
                 difference.display();
             }
             break;
         case 7:
             if (polynomial1.isEmpty() || polynomial2.isEmpty()) {
-                cout << "Both polynomials must have terms to perform multiplication. Please enter terms in both polynomials first.\n";
+                cout << "Please enter both polynomials.\n";
             }
             else {
                 List product = polynomial1 * polynomial2;
@@ -235,18 +235,23 @@ int main() {
             }
             break;
         case 8:
-            cout << "Enter the value of x to evaluate Polynomial 1: ";
-            x = getValidInt();
-            cout << "Polynomial 1 evaluated at x = " << x << ": " << polynomial1.evaluate(x) << endl;
+            if (polynomial1.isEmpty()) {
+                cout << "Polynomial 1 is empty.\n";
+            }
+            else {
+                cout << "Enter the value of x of Polynomial 1: ";
+                x = getValidInt();
+                cout << "For Polynomial 1: x = " << x << ": " << polynomial1.evaluate(x) << endl;
+            }
             break;
         case 9:
             if (polynomial2.isEmpty()) {
-                cout << "Polynomial 2 has no terms. Please enter terms in Polynomial 2 first.\n";
+                cout << "Polynomial 2 is empty.\n";
             }
             else {
                 cout << "Enter the value of x to evaluate Polynomial 2: ";
                 x = getValidInt();
-                cout << "Polynomial 2 evaluated at x = " << x << ": " << polynomial2.evaluate(x) << endl;
+                cout << "For Polynomial 2: x = " << x << ": " << polynomial2.evaluate(x) << endl;
             }
             break;
         default:
